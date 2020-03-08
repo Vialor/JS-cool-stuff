@@ -8,27 +8,33 @@
 </head>
 <body>
     <div class="piano">
-        <div data-sound="C" class="key">
+        <div data-id="C" class="key">
             <kbd>A</kbd>
             <div class="sound">C</div>
         </div>
-        <div data-sound="Db" class="key">
+        <div data-id="Db" class="key">
             <kbd>S</kbd>
             <div class="sound">Db</div>
         </div>
-        <div data-sound="D" class="key">
+        <div data-id="D" class="key">
             <kbd>D</kbd>
             <div class="sound">D</div>
         </div>
-        <div data-sound="Eb" class="key">
+        <div data-id="Eb" class="key">
             <kbd>F</kbd>
             <div class="sound">Eb</div>
+        </div>
+        <div data-id="E" class="key">
+            <kbd>G</kbd>
+            <div class="sound">E</div>
         </div>
     </div>
     <div class="beater"></div>
 
     <!-- audio files -->
-    <audio data-sound="C" src="./pianoNotes4/Piano.mf.C4.aiff"></audio>
+    <audio data-id="C" src="./pianoNotes4/Piano.mf.C4.aiff"></audio>
+    <audio data-id="Db" src="./pianoNotes4/Piano.mf.Db4.aiff"></audio>
+    <audio data-id="D" src="./pianoNotes4/Piano.mf.D4.aiff"></audio>
 </body>
 
 <script>
@@ -39,8 +45,8 @@
 
 
     function playSound(e){
-        const audio =  document.querySelector(`audio[data-sound="${e.keyCode}"]`);
-        const key = document.querySelector(`div[data-sound="${e.keyCode}"]`);
+        const audio =  document.querySelector(`audio[data-id="${e.keyCode}"]`);
+        const key = document.querySelector(`div[data-id="${e.keyCode}"]`);
         if(!audio) return;
         
         key.classList.add('playing');
