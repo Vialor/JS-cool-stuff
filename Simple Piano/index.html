@@ -2,60 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="wkeyth=device-wkeyth, initial-scale=1.0">
     <title>Simple Piano</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <div class="displayer">
+        <!-- display the note you played -->
+    </div>
     <div class="piano">
-        <div data-id="C" class="key">
-            <kbd>A</kbd>
-            <div class="sound">C</div>
+        <div class="whole">
+            <div data-key="81" class="key">
+                <kbd>Q</kbd>
+                <div class="sound">G</div>
+            </div>
+            <div data-key="87" class="key">
+                <kbd>W</kbd>
+                <div class="sound">A</div>
+            </div>
+            <div data-key="69" class="key">
+                <kbd>E</kbd>
+                <div class="sound">B</div>
+            </div>
+            <div data-key="82" class="key">
+                <kbd>R</kbd>
+                <div class="sound">C</div>
+            </div>
+            <div data-key="84" class="key">
+                <kbd>T</kbd>
+                <div class="sound">D</div>
+            </div>
+            <div data-key="89" class="key">
+                <kbd>Y</kbd>
+                <div class="sound">E</div>
+            </div>
+            <div data-key="85" class="key">
+                <kbd>U</kbd>
+                <div class="sound">F</div>
+            </div>
+            <div class="key dummy">
+                DNE
+            </div>
         </div>
-        <div data-id="Db" class="key">
-            <kbd>S</kbd>
-            <div class="sound">Db</div>
-        </div>
-        <div data-id="D" class="key">
-            <kbd>D</kbd>
-            <div class="sound">D</div>
-        </div>
-        <div data-id="Eb" class="key">
-            <kbd>F</kbd>
-            <div class="sound">Eb</div>
-        </div>
-        <div data-id="E" class="key">
-            <kbd>G</kbd>
-            <div class="sound">E</div>
+        <div class="half">
+            <div class="key dummy">
+                DNE
+            </div>
+            <div class="key dummy">
+                DNE
+            </div>
+            <div data-key="68" class="key">
+                <kbd>D</kbd>
+                <div class="sound">Bb</div>
+            </div>
+            <div data-key="70" class="key">
+                <kbd>F</kbd>
+                <div class="sound">C#</div>
+            </div>
+            <div class="key dummy">
+                DNE
+            </div>
+            <div data-key="72" class="key">
+                <kbd>H</kbd>
+                <div class="sound">Eb</div>
+            </div>
+            <div data-key="74" class="key">
+                <kbd>J</kbd>
+                <div class="sound">F#</div>
+            </div>
+            <div data-key="75" class="key">
+                <kbd>K</kbd>
+                <div class="sound">G#</div>
+            </div>
         </div>
     </div>
     <div class="beater"></div>
 
     <!-- audio files -->
-    <audio data-id="C" src="./pianoNotes4/Piano.mf.C4.aiff"></audio>
-    <audio data-id="Db" src="./pianoNotes4/Piano.mf.Db4.aiff"></audio>
-    <audio data-id="D" src="./pianoNotes4/Piano.mf.D4.aiff"></audio>
+    <audio data-key="81" src="./pianoNotes/g.wav"></audio>
+    <audio data-key="87" src="./pianoNotes/a.wav"></audio>
+    <audio data-key="69" src="./pianoNotes/b.wav"></audio>
+    <audio data-key="82" src="./pianoNotes/c.wav"></audio>
+    <audio data-key="84" src="./pianoNotes/d.wav"></audio>
+    <audio data-key="89" src="./pianoNotes/e.wav"></audio>
+    <audio data-key="85" src="./pianoNotes/f.wav"></audio>
+
+    <audio data-key="68" src="./pianoNotes/bb.wav"></audio>
+    <audio data-key="70" src="./pianoNotes/c+.wav"></audio>
+    <audio data-key="72" src="./pianoNotes/eb.wav"></audio>
+    <audio data-key="74" src="./pianoNotes/f+.wav"></audio>
+    <audio data-key="75" src="./pianoNotes/g+.wav"></audio>
+
+    <script>
+        function removeTransition(e) {
+            if(e.propertyName !== 'transform')return;
+            e.target.classList.remove('playing');
+        }
+    
+    
+        function playSound(e){
+            const audio =  document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+            if(!audio) return;
+            
+            key.classList.add('playing');
+            audio.currentTime = 0;
+            audio.play();
+        }
+       
+        const keys = Array.from(document.querySelectorAll('.key'));
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+        window.addEventListener('keydown',playSound);
+    </script>
 </body>
-
-<script>
-    function removeTransition(e) {
-        if(e.propertyName !== 'transform')return;
-        e.target.classList.remove('playing');
-    }
-
-
-    function playSound(e){
-        const audio =  document.querySelector(`audio[data-id="${e.keyCode}"]`);
-        const key = document.querySelector(`div[data-id="${e.keyCode}"]`);
-        if(!audio) return;
-        
-        key.classList.add('playing');
-        audio.currentTime = 0;
-        audio.play();
-    }
-   
-    const keys = Array.from(document.querySelectorAll('.key'));
-    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-    window.addEventListener('keydown',playSound);
-</script>
 </html>

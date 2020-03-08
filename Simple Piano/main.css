@@ -1,20 +1,36 @@
 body{
+    font-family: sans-serif;
     background: url("background.png");
+}
+
+.dummy{
+    visibility: hidden;
 }
 
 .piano{
     position: absolute;
-    top: 40%;
+    top: 25%;
     width: 100%;
     display: flex;
+    flex-direction: column;
+}
+
+.piano > *{
+    display: flex;
     justify-content: space-around;
+    margin: 10px;
 }
 
 .key{
+    text-align: center;
+    width: 70px;
+    transition: all .07s ease;
     color: #eee;
     border: antiquewhite solid 3px;
     border-radius: 10px;
-    padding: 10px
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 12px black;
 }
 
 .key kbd{
@@ -25,4 +41,12 @@ body{
 .key .sound{
     font-size: 30px;
     font-weight: bold;
+    color: orange;
 }
+
+.playing {
+    transform: scale(1.1);
+    border-color: lightblue;
+    box-shadow: 0 0 15px lightblue;
+    background: rgba(0, 0, 0, 0.5);
+  }
