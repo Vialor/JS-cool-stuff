@@ -1,0 +1,21 @@
+body{
+    background: url("background.png");
+}
+
+.piano{
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.key{
+    font-size: 30px;
+    font-weight: bold;
+    color: #eee;
+    border: antiquewhite solid 1px;
+    border-radius: 5px;
+    padding: 10px
+}
+
