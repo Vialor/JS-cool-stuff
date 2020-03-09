@@ -52,14 +52,7 @@ body{
   }
 
 .more > *{
-    text-align: center;
     width: 120px;
     height: 120px;
-    transition: all .07s ease;
-    color: #eee;
-    border: antiquewhite solid 3px;
     border-radius: 50%;
-    padding: 5px;
-    background: rgba(0, 0, 0, 0.3);
-    text-shadow: 0 0 12px black;
 }
