@@ -1,0 +1,46 @@
+body{
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+/* auto-scroll */
+.auto-scroll-wrap{
+    display: flex;
+    align-items: center;
+    width: 800px;
+    justify-content: space-between;
+}
+
+#auto-scroll{
+    background: burlywood;
+    position: relative;
+    width: 700px;
+    height: 150px;
+    overflow: hidden;
+}
+
+#auto-scroll ul{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#auto-scroll ul li{
+    list-style: none;
+}
+
+#auto-scroll ul li img{
+    height: 150px;
+    margin-right: 10px;
+}
+
+#auto-left:hover, #auto-right:hover{
+    color: orange;
+    cursor: pointer;
+}

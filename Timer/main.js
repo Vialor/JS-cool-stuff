@@ -14,10 +14,6 @@ function toDou(n){
     return (n<10) ? '0'+n : n;
 }
 
-function week(n){
-    var weeklst = [];
-}
-
 onload = function(){
     var timer = null;
     function counter(){
@@ -26,7 +22,7 @@ onload = function(){
             clearInterval(timer);
             return;
         }
-        $("#date").innerHTML = today.toUTCString();
+        $("#date").innerHTML = today.toString();
         $("#hour").innerText = toDou(today.getHours());
         $("#minute").innerText = toDou(today.getMinutes());
         $("#second").innerText = toDou(today.getSeconds());
