@@ -1,0 +1,27 @@
+body{
+    background-color: antiquewhite;
+    display: flex;
+    margin: 0;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.option{
+    background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    padding: 2%;
+}
+
+.timer{
+    position: absolute;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px;
+    border-radius: 5px;
+    width: 60%;
+}
+
+

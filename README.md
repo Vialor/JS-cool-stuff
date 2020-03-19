@@ -7,5 +7,6 @@ TODO list:
 
 1. Timer/Clock
 2. Calculator
-3. Keyboard Piano
 4. 2048
+4. Wheel of Fortune
+5. 
