@@ -10,18 +10,40 @@ function $$(selector, base = null) {
     return Array.from(base.querySelectorAll(selector));
 }
 
-var today = new Date();
-
-// stopwatch and countdown
-var num = 0;
-function counter(){
-    num++;
-    if (num > 5) { //exit condition
-        clearInterval(timer);
-        return;
-    }
-    $("#date").innerHTML = today.toUTCString();
-    if (true) $("#time").innerHTML = parseInt($("#time").innerHTML) + 1;
-    else $("#time").innerHTML = parseInt($("#time").innerHTML) - 1;
+function toDou(n){
+    return (n<10) ? '0'+n : n;
 }
-var timer = setInterval(counter, 1000);
+
+function week(n){
+    var weeklst = [];
+}
+
+onload = function(){
+    var timer = null;
+    function counter(){
+        var today = new Date();
+        if (false) { //exit condition
+            clearInterval(timer);
+            return;
+        }
+        $("#date").innerHTML = today.toUTCString();
+        $("#hour").innerText = toDou(today.getHours());
+        $("#minute").innerText = toDou(today.getMinutes());
+        $("#second").innerText = toDou(today.getSeconds());
+    }
+    timer = setInterval(counter, 1000);
+    counter(); //initialize
+
+    //menu behavior
+    var menu = $("#menu");
+    var option = $("#option");
+    var menuTimer = null;
+    option.onmouseover = menu.onmouseover = function(){
+        clearInterval(menuTimer);
+        option.style.display = 'block'
+    };
+    option.onmouseout = menu.onmouseout = function(){
+        menuTimer = setTimeout(function(){
+            option.style.display = 'none'}, 200);
+    };
+}

@@ -8,15 +8,19 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <div class="option">
-        <div class="tab">&lt&lt</div>
-        <button>Clock</button>
-        <button>StopWatch</button>
-        <button>CountDown Timer</button>
+    <div class="sidebar">
+        <img id="menu" src="menu.png" alt="menu">
+        <div id="option">
+            <div>Clock</div>
+            <div>StopWatch</div>
+            <div>CountDown Timer</div>
+        </div>
     </div>
     <div class="timer">
         <div id="date">NULL</div>
-        <div id="time">0</div>
+        <div id="time">
+            <span id="hour"></span>:<span id="minute"></span>:<span id="second"></span>
+        </div>
         <div id="panel"></div>
     </div>
 </body>

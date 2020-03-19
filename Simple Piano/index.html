@@ -76,7 +76,7 @@
             </div>
         </div>
         <div class="more">
-            <div class="key" id="beat" onkeydown="beat()">
+            <div class="key" id="beat" onkeydown="keyB()">
                 <kbd>B</kbd>
                 <div class="sound">beat</div>
             </div>
@@ -111,7 +111,6 @@
             const audio =  document.querySelector(`audio[data-key="${e.keyCode}"]`);
             const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
             if(!audio) return;
-            
             key.classList.add('playing');
             audio.currentTime = 0;
             audio.play();
@@ -122,14 +121,24 @@
         window.addEventListener('keydown',playSound);
 
         // beater
-        function beat(){
+        var status = 0;
+        function keyB(){
             const audio =  document.querySelector(`audio[data-key="66"]`);
             const key = document.getElementById('beat');
-            setInterval(function(){ 
+            var beat = null;
+            if (status == 0){
+                status = 1;
+                beat = setInterval(function(){ 
                 // key.classList.add('playing');
-                audio.play();
+                    audio.play();
+                    console.log("aaa");
                 // key.classList.remove('playing');
-            }, 1000);
+                }, 1000);
+            }
+            else{
+                status = 0;
+                clearInterval(beat);
+            }
         }
     </script>
 </body>
