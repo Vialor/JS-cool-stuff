@@ -36,10 +36,10 @@ onload = function(){
     var menuTimer = null;
     option.onmouseover = menu.onmouseover = function(){
         clearInterval(menuTimer);
-        option.style.display = 'block'
+        option.style.visibility = 'visible'
     };
     option.onmouseout = menu.onmouseout = function(){
         menuTimer = setTimeout(function(){
-            option.style.display = 'none'}, 200);
+            option.style.visibility = 'hidden'}, 200);
     };
 }

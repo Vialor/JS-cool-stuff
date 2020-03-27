@@ -27,7 +27,6 @@ onload = function(){
         speed = -2;
     };
     auto_right.onclick = function(){
-        console.log("222");
         speed = 2;
     };
 };
