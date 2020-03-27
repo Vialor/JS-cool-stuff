@@ -1,5 +1,5 @@
 'use strict'
-
+// basic func
 function $(selector, base = null) {
     base = (base === null) ? document : base;
     return base.querySelector(selector);
@@ -14,8 +14,17 @@ function toDou(n){
     return (n<10) ? '0'+n : n;
 }
 
+// onload
 onload = function(){
+    // var
     var timer = null;
+    var noteTimer = null;
+    var menuTimer = null;
+    var menu = $("#menu");
+    var option = $("#option");
+    var notebook = $("#note-book");
+
+    // timer
     function counter(){
         var today = new Date();
         if (false) { //exit condition
@@ -31,9 +40,6 @@ onload = function(){
     counter(); //initialize
 
     //menu behavior
-    var menu = $("#menu");
-    var option = $("#option");
-    var menuTimer = null;
     option.onmouseover = menu.onmouseover = function(){
         clearInterval(menuTimer);
         option.style.visibility = 'visible'
@@ -42,4 +48,23 @@ onload = function(){
         menuTimer = setTimeout(function(){
             option.style.visibility = 'hidden'}, 200);
     };
+
+    //notebook behavior
+    function showNotes(stop, speed){
+        clearInterval(noteTimer);
+        noteTimer = setInterval(function(){
+            if (notebook.offsetLeft == stop){
+                clearInterval(noteTimer);
+            } else {
+                notebook.style.left = notebook.offsetLeft + speed +'px';
+            }
+        }, 30);
+    }
+    notebook.onmouseover = $('#note-tab').onmouseover = function(){
+        showNotes(0, 10);
+    };
+    notebook.onmouseout = $('#note-tab').onmouseover = function(){
+        showNotes(-120, -10);
+    };
+
 }
