@@ -20,9 +20,3 @@ trew
 
 rrrteww
 
-uuhuuih
-
-thr
-
-...
-

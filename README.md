@@ -1,13 +1,16 @@
 # JS-cool-stuff
 try out some JS and CSS ideas
 
+Done:
+
+1. Simple Piano
+
 Doing:
 
 1. Timer/Clock
-2. Simple Piano
 3. Display Img
 
-TODO list:
+TODO:
 
 4. 2048
 4. Wheel of Fortune
