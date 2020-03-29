@@ -1,0 +1,55 @@
+body{
+    font-family: sans-serif;
+    background-color: antiquewhite;
+}
+
+header{
+    margin: auto;
+    width: 500px;
+    text-align: center;
+}
+
+header h1{
+    text-shadow: 0 0 10px grey;
+}
+
+#newgame-btn{
+    text-decoration: none;
+    color: antiquewhite;
+    background-color: coral;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 5px grey;
+    font-weight: bold;
+}
+
+#newgame-btn:hover{
+    background-color: rgb(218, 120, 85);
+}
+
+#grid-container{
+    width: 460px;
+    height: 460px;
+    padding: 20px;
+    background-color: #11659a; /* 搪磁蓝 */
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px grey;
+    position: relative;
+}
+
+.grid-cell{
+    width: 100px;
+    height: 100px;
+    background-color: #8fb2c9; /* 晴山蓝 */
+    border-radius: 10px;
+    position: absolute;
+}
+
+.number-cell{
+    position: absolute;
+    /* border-radius: 5px; */
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+}
