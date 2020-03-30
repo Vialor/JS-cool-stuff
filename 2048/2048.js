@@ -114,7 +114,7 @@ $(document).keydown(function(ev){
 
 function moveLeft(board){
     for (let i=0; i<4; i++){
-        for (let j=1; j<4; j++){
+        for (let j=1; j<4; j++){ // the order of j from 1 to 4 is important
             if (board[i][j]!=0){
                 for (let k=0; k<j; k++){ // the order of k from 0 to j is important
                     if ((board[i][k]==0||board[i][k]==board[i][j]) && noBlockHorizontal(i, k, j, board)){
@@ -136,7 +136,7 @@ function moveLeft(board){
 
 function moveRight(board){
     for (let i=0; i<4; i++){
-        for (let j=0; j<3; j++){
+        for (let j=2; j>=0; j--){
             if (board[i][j]!=0){
                 for (let k=3; k>j; k--){
                     if ((board[i][k]==0||board[i][k]==board[i][j]) && noBlockHorizontal(i, j, k, board)){
@@ -173,7 +173,7 @@ function moveUp(board){
 }
 
 function moveDown(board){
-    for (let i=0; i<3; i++){
+    for (let i=2; i>=0; i--){
         for (let j=0; j<4; j++){
             if (board[i][j]!=0){
                 for (let k=3; k>i; k--){
