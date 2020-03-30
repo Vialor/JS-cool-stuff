@@ -7,6 +7,7 @@ header{
     margin: auto;
     width: 500px;
     text-align: center;
+    font-weight: bold;
 }
 
 header h1{
@@ -20,7 +21,6 @@ header h1{
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 0 5px grey;
-    font-weight: bold;
 }
 
 #newgame-btn:hover{
@@ -31,11 +31,30 @@ header h1{
     width: 460px;
     height: 460px;
     padding: 20px;
-    background-color: #11659a; /* 搪磁蓝 */
+    background-color: #806d9e; /* 槿紫 */
     margin: 50px auto;
     border-radius: 10px;
     box-shadow: 0 0 10px grey;
     position: relative;
+}
+
+#game-over{
+    width: 460px;
+    height: 460px;
+    padding: 20px;
+    margin: 50px auto;
+    background-color: burlywood;
+    border-radius: 10px;
+    box-shadow: 0 0 10px grey;
+
+    text-align: center;
+    font-weight: bold;
+
+    display: none;
+}
+
+#game-over > *:first-child{
+    font-size: 50px;
 }
 
 .grid-cell{
@@ -47,9 +66,11 @@ header h1{
 }
 
 .number-cell{
-    position: absolute;
     /* border-radius: 5px; */
     font-weight: bold;
     font-size: 60px;
     text-align: center;
+    line-height: 100px;
+    border-radius: 10px;
+    position: absolute;
 }

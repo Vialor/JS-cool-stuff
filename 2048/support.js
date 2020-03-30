@@ -24,11 +24,28 @@ function getNumColor(num){
     return num<=4 ? "#776e65" : "white";
 }
 
+// if the board has no space
 function noSpace(board){
     for(let i=0; i<4; i++){
         for (let j=0; j<4; j++){
             if (board[i][j]==0) return false;
         }
+    }
+    return true;
+}
+
+function noBlockHorizontal(row, col1, col2, board){
+    // col1 < col2, if there is num between col1 and col2
+    for (let i=col1+1; i<col2; i++){
+        if (board[row][i] != 0) return false;
+    }
+    return true;
+}
+
+function noBlockVertical(col, row1, row2, board){
+    // row1 < row2
+    for (let i=row1+1; i<row2; i++){
+        if (board[i][col] != 0) return false;
     }
     return true;
 }
