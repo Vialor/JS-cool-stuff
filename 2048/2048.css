@@ -14,6 +14,12 @@ header h1{
     text-shadow: 0 0 10px grey;
 }
 
+.score-panel{
+    margin: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
 #newgame-btn{
     text-decoration: none;
     color: antiquewhite;

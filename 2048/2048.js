@@ -1,13 +1,19 @@
 var board = new Array();
 var score = 0;
+var best = 0;
 
 $(function(){
     newgame();
 });
 
 function newgame(){
+    // update best score
+    if (score>best) best = score;
+    $(".best").text(best);
+    
     // initialize the grid
     init();
+    
     // generate two random num
     generateNumber();
     generateNumber();
@@ -16,7 +22,8 @@ function newgame(){
 function init(){
     $("#grid-container").css("display", "block");
     $("#game-over").css("display", "none");
-
+    score = 0;
+    $(".score").text('0');
     for (let i = 0; i<4; i++){
         board[i] = new Array();
         for (let j = 0; j<4; j++){
@@ -28,7 +35,6 @@ function init(){
         }
     }
     updateBoardView();
-    score = 0;
 }
 
 function updateBoardView(){
