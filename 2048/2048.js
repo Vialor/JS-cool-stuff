@@ -37,12 +37,7 @@ function updateBoardView(){
         for (let j=0; j<4; j++){
             $("#grid-container").append('<div class="number-cell" id="number-cell-'+i+'-'+j+'"></div>');
             var curNumCell = $('#number-cell-'+i+'-'+j);
-            // if (board[i][j] == 16) {
-            //     // remove 2048
-            //     disappearAnimation(i, j);
-            //     board[i][j] = 0;
-            //     // setTimeout("board[i][j] = 0", 1000); // wait for animation
-            // } else 
+            if (board[i][j] == 8) board[i][j] = 0;
             if (board[i][j] == 0){
                 curNumCell.css('width', '0');
                 curNumCell.css('height', '0');

@@ -12,17 +12,6 @@ function generateNumberWithAnimation(i, j, randnum){
     }, 100);
 }
 
-function disappearAnimation(i, j){
-    let curNumCell = $("#number-cell-"+i+"-"+j);
-
-    curNumCell.animate({
-        width: "0",
-        height: "0",
-        top: getPos(i)+50,
-        left: getPos(j)+50
-    }, 1000);
-}
-
 function moveAnimation(fromx, fromy, tox, toy){
     let curNumCell = $("#number-cell-"+fromx+"-"+fromy);
     curNumCell.animate({

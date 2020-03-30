@@ -4,12 +4,12 @@ try out some JS and CSS ideas
 Done:
 
 1. Simple Piano
+2. 2048
 
 Doing:
 
 1. Timer/Clock
 3. Display Img
-3. 2048
 
 TODO:
 
