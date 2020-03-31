@@ -111,6 +111,7 @@ $(document).keydown(function(ev){
             break;
         default: break;
     }
+    return false;
 });
 
 function moveLeft(board){
