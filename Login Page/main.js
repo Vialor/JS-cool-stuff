@@ -10,7 +10,34 @@ function $$(selector, base = null) {
     return Array.from(base.querySelectorAll(selector));
 }
 
+let userInfo;
+
+function checkForm() {
+    var name = $("#username");
+    var pwd = $('#password');
+    for (let i=0; i<userInfo.length; i++){
+        let account = userInfo[i];
+        if (account["name"]==name.value&&account["password"]==pwd.value){
+            alert("Pass!");
+            return true;
+        }
+    }
+    alert("Fail TAT");
+    return false;
+}
+
 window.onload = function(){
+    //read JSON
+    let requestURL = './data.json';
+    let request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'text';
+    request.send();
+    request.onload = function() {
+        userInfo = JSON.parse(request.response)["userInfo"];
+    };
+
+    // btn listener
     $("#login-btn").addEventListener("click", function(){
         $("#login-form").style.display='block';});
     $("#close").addEventListener("click", function(){
@@ -44,6 +71,5 @@ window.onload = function(){
             document.onmousemove = null;
             document.onmouseup = null;
         };
-        return false; // prevent default action
     };
 };
