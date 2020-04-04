@@ -5,13 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Chat</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="main.js"></script>
     <script>
-        fetch('http://wang.norma.shop:8080/api.php?key=free&appid=0&msg=%E4%BD%A0%E5%A5%BD')
-.then(response=>response.json())
-.then(data=>console.log(data))
+        const msg = encodeURI("");
+        // http://api.qingyunke.com/api.php?key=free&appid=0&msg=
+    //     $.ajax({
+    //    type : "get", //jquey是不支持post方式跨域的
+    //    async: false,
+    //    url : "https://api.douban.com/v2/book/user/119280372/collections", //跨域请求的URL
+    //    dataType : "jsonp",
+    //    //传递给请求处理程序，用以获得jsonp回调函数名的参数名(默认为:callback)
+    //    jsonp: "callback",
+    //    //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+    //    jsonpCallback:"success_jsonpCallback",
+    //    //成功获取跨域服务器上的json数据后,会动态执行这个callback函数
+    //    success : function(json){
+    //      alert(json);
+    //   }
+    // });
     </script>
 </head>
 <body>
-    
+    <div id="mydiv">
+        <button id="btn">点击</button>
+    </div>
 </body>
 </html>

@@ -30,7 +30,7 @@ window.onload = function(){
     //read JSON
     let requestURL = './data.json';
     let request = new XMLHttpRequest();
-    request.open('GET', requestURL);
+    request.open('GET', requestURL, true);
     request.responseType = 'text';
     request.send();
     request.onload = function() {
