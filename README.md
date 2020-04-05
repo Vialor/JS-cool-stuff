@@ -9,11 +9,17 @@ Done:
 Doing:
 
 1. Timer/Clock
-3. Display Img
+2. Geolocation
 
 TODO:
 
 4. Wheel of Fortune
 5. Calculator
 3. Music Player
+
+Explore:
+
+Play with Chart.js
+
+Display Img
 
