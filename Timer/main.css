@@ -1,9 +1,10 @@
 body{
     background-color: antiquewhite;
     margin: 0;
-    display: flex;
     font-family: "Gill Sans", sans-serif;
     font-size: 15px;
+    display:flex;
+    flex-direction: row;
 }
 
 .sidebar{
@@ -11,27 +12,32 @@ body{
     margin: 2%;
 }
 
-#menu{
+.menu, .play, .restart, .pause, .plus{
     width: 50px;
 }
 
-#menu:hover{
+.menu:hover, .play:hover, .restart:hover, .pause:hover, .plus:hover{
+    transform: scale(1.1);
     cursor: pointer;
 }
 
-#option{
+.pause{
+    display: none;
+}
+
+.option{
     visibility: hidden;
     flex-direction: column;
     font-size: 20px;
     margin-bottom: 50px;
 }
 
-#option > *:hover{
+.option > *:hover{
     color: orange;
     cursor: pointer;
 }
 
-#note-tab{
+.note-tab{
     width: 25px;
     position: absolute;
     top: 0;
@@ -44,7 +50,7 @@ body{
     padding-bottom: 5px;
 }
 
-#note-book{
+.note-book{
     position: absolute;
     left: -120px;
     top: 40%;
@@ -56,7 +62,7 @@ body{
     width: 120px;
 }
 
-#note-book input{
+.note-book input{
     margin: 8px;
     width: 90px;
     min-height: 150px;
@@ -64,10 +70,11 @@ body{
 
 .timer{
     position: absolute;
-    top: 100px;
     left: 20%;
     width: 60%;
+    height: 100vh;
     display: flex;
+    justify-content: space-around;
     flex-direction: column;
 }
 
@@ -81,8 +88,17 @@ body{
     margin-bottom: 10px;
 }
 
+.panel{
+    height: 400px;
+}
+
 #time{
-    font-size: 80px;
+    font-size: 100px;
     font-weight: bold;
 }
 
+.operation{
+    margin:10px;
+    display: flex;
+    justify-content: space-around;
+}

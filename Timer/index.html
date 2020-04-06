@@ -8,17 +8,17 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <div id="note-book">
-        <input type="text" id="note-content">
+    <div class="note-book">
+        <input type="text" class="note-content">
         <input type="button" value="display">
-        <div id="note-tab">Notes</div>
+        <div class="note-tab">Notes</div>
     </div>
     <div class="sidebar">
-        <img id="menu" src="menu.png" alt="menu">
-        <div id="option">
-            <div>Clock</div>
-            <div>StopWatch</div>
-            <div>CountDown Timer</div>
+        <img class="menu" src="menu.png" alt="menu">
+        <div class="option">
+            <div class="mode0">Clock</div>
+            <div class="mode1">StopWatch</div>
+            <div class="mode2">CountDown Timer</div>
         </div>
     </div>
     <div class="timer">
@@ -28,7 +28,14 @@
                 <span id="hour"></span>:<span id="minute"></span>:<span id="second"></span>
             </div>
         </div>
-        <div class="panel">panel</div>
+        <div class="panel">
+            <div class="operation">
+                <img src="play.png" class="play" alt="play">
+                <img src="pause.png" class="pause" alt="pause">
+                <img src="plus.png" class="plus" alt="plus">
+                <img src="restart.png" class="restart" alt="restart">
+            </div>
+        </div>
     </div>
 </body>
 </html>
