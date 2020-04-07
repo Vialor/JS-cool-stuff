@@ -14,6 +14,18 @@ function toDou(n){
     return (n<10) ? '0'+n : n;
 }
 
+function showNote(){
+    $(".notification").style.display = "block";
+    $(".notification").innerText = $(".note-text").value;
+    $(".timer").classList.add("blur");
+}
+
+function hideNote(){
+    $(".notification").style.display = "none";
+    $(".timer").classList.remove("blur");
+}
+
+
 // onload
 onload = function(){
     // var
@@ -24,7 +36,8 @@ onload = function(){
 
     function clockmode(){
         clearInterval(timer);
-        $(".panel").style.display = "none";
+        $(".countdown-panel").style.display = "none";
+        $(".stopwatch-panel").style.display = "none";
             function counter(){
                 var today = new Date();
                 $("#date").innerHTML = today.toString();
@@ -38,7 +51,10 @@ onload = function(){
 
     function stopwatchmode(){
         clearInterval(timer);
-        $(".panel").style.display = "block";
+        $(".countdown-panel").style.display = "none";
+        $(".stopwatch-panel").style.display = "block";
+        $(".play").style.display = "block";
+        $(".pause").style.display = "none";
         $("#date").innerHTML = '';
         let timestamp = 0;
         counter();
@@ -55,6 +71,8 @@ onload = function(){
         $(".play").onclick = function(){
             $(".play").style.display = "none";
             $(".pause").style.display = "block";
+            counter();
+            timestamp++;
             timer = setInterval(function(){
                 counter();
                 timestamp++;
@@ -76,7 +94,8 @@ onload = function(){
 
     function countdownmode(){
         clearInterval(timer);
-        $(".panel").style.display = "block";
+        $(".stopwatch-panel").style.display = "none";
+        $(".countdown-panel").style.display = "block";
     }
 
     // timer main logic
@@ -114,5 +133,14 @@ onload = function(){
     notebook.onmouseout = $('.note-tab').onmouseover = function(){
         showNotes(-120, -10);
     };
+
+    // notification
+    $(".note-btn").onclick = function(ev){
+        showNote();
+        ev.cancelBubble = true;
+    }
+    document.onclick = function(){
+        hideNote();
+    }
 
 }

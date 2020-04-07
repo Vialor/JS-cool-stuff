@@ -8,9 +8,10 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <div class="notification">NOTE</div>
     <div class="note-book">
-        <input type="text" class="note-content">
-        <input type="button" value="display">
+        <textarea name="note-text" class="note-text"></textarea>
+        <input type="button" value="display" class="note-btn">
         <div class="note-tab">Notes</div>
     </div>
     <div class="sidebar">
@@ -28,13 +29,24 @@
                 <span id="hour"></span>:<span id="minute"></span>:<span id="second"></span>
             </div>
         </div>
-        <div class="panel">
+        <div class="stopwatch-panel panel">
             <div class="operation">
                 <img src="play.png" class="play" alt="play">
                 <img src="pause.png" class="pause" alt="pause">
                 <img src="plus.png" class="plus" alt="plus">
                 <img src="restart.png" class="restart" alt="restart">
             </div>
+
+
+
+        </div>
+        <div class="countdown-panel panel">
+            <div class="operation">
+                <img src="play.png" class="play" alt="play">
+                <img src="pause.png" class="pause" alt="pause">
+                <img src="restart.png" class="restart" alt="restart">
+            </div>
+            <input type="text" class="note-content"><input type="button" value="set">
         </div>
     </div>
 </body>
