@@ -9,7 +9,6 @@ Done:
 Doing:
 
 1. Timer/Clock
-2. Geolocation
 
 TODO:
 

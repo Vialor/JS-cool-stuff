@@ -119,3 +119,13 @@ body{
     filter: blur(1rem);
     opacity: 0.7;
 }
+
+.stopwatch-record{
+    margin: 5%;
+    height: 40vh;
+    overflow-y: scroll;
+}
+
+.time-record{
+    font-size: 25px;
+}

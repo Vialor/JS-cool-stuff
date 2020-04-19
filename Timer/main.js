@@ -50,6 +50,8 @@ onload = function(){
     }
 
     function stopwatchmode(){
+        let order = 1;
+
         clearInterval(timer);
         $(".countdown-panel").style.display = "none";
         $(".stopwatch-panel").style.display = "block";
@@ -72,10 +74,9 @@ onload = function(){
             $(".play").style.display = "none";
             $(".pause").style.display = "block";
             counter();
-            timestamp++;
             timer = setInterval(function(){
-                counter();
                 timestamp++;
+                counter();
             }, 1000);
         };
         $(".restart").onclick = function(){
@@ -84,11 +85,31 @@ onload = function(){
             clearInterval(timer);
             timestamp = 0;
             counter();
+
+            // clear record
+            const record = $(".stopwatch-record");
+            while (record.firstChild) {
+                record.removeChild(record.lastChild);
+            }
+            order = 1;
         };
         $(".pause").onclick = function(){
             $(".play").style.display = "block";
             $(".pause").style.display = "none";
             clearInterval(timer);
+        }
+        $(".plus").onclick = function(){
+            const newNode = document.createElement("div");
+            newNode.className = "time-record";
+
+            const hour = Math.floor(timestamp / 60 / 60);
+            const minute = Math.floor(timestamp / 60) - 60 * hour;
+            const second = timestamp % 60;
+            const timeStr = order + ". " + toDou(hour) + ":" + toDou(minute) + ":" + toDou(second);
+            order++;
+            newNode.textContent = timeStr;
+
+            $(".stopwatch-record").appendChild(newNode);
         }
     }
 
