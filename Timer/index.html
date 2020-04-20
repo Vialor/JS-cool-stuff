@@ -31,8 +31,8 @@
         </div>
         <div class="stopwatch-panel panel">
             <div class="operation">
-                <img src="play.png" class="play" alt="play">
-                <img src="pause.png" class="pause" alt="pause">
+                <img src="play.png" class="play play1" alt="play">
+                <img src="pause.png" class="pause pause1" alt="pause">
                 <img src="plus.png" class="plus" alt="plus">
                 <img src="restart.png" class="restart" alt="restart">
             </div>
@@ -42,10 +42,13 @@
         </div>
         <div class="countdown-panel panel">
             <div class="operation">
-                <img src="play.png" class="play" alt="play">
-                <img src="pause.png" class="pause" alt="pause">
+                <img src="play.png" class="play play2" alt="play">
+                <img src="pause.png" class="pause pause2" alt="pause">
             </div>
-            <input type="text" class="note-content"><input type="button" value="set">
+            <div class="set-time">
+                <input type="text" class="note-content" placeholder="format: 00:00:00">
+                <input id="set-time-btn" type="button" value="set">
+            </div>
         </div>
     </div>
 </body>

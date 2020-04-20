@@ -25,6 +25,24 @@ function hideNote(){
     $(".timer").classList.remove("blur");
 }
 
+function counter(timestamp){
+    const hour = Math.floor(timestamp / 60 / 60);
+    const min = Math.floor(timestamp / 60) - 60 * hour;
+    const sec = timestamp % 60;
+    $("#hour").innerText = toDou(hour);
+    $("#minute").innerText = toDou(min);
+    $("#second").innerText = toDou(sec);
+}
+
+function readTime(timeStr){
+    // 00:00:00 to timestamp
+    const hour = parseInt(timeStr.slice(0, 2));
+    const min = parseInt(timeStr.slice(3, 5));
+    const sec = parseInt(timeStr.slice(6));
+    return sec + 60*min + 3600*hour;
+}
+
+const setReg = /^\d{2}[:][0-6]\d[:][0-6]\d$/
 
 // onload
 onload = function(){
@@ -50,41 +68,33 @@ onload = function(){
     }
 
     function stopwatchmode(){
+        // record order
         let order = 1;
 
         clearInterval(timer);
         $(".countdown-panel").style.display = "none";
         $(".stopwatch-panel").style.display = "block";
-        $(".play").style.display = "block";
-        $(".pause").style.display = "none";
+        $(".play1").style.display = "block";
+        $(".pause1").style.display = "none";
         $("#date").innerHTML = '';
         let timestamp = 0;
-        counter();
-
-        function counter(){
-            const hour = Math.floor(timestamp / 60 / 60);
-            const minute = Math.floor(timestamp / 60) - 60 * hour;
-            const second = timestamp % 60;
-            $("#hour").innerText = toDou(hour);
-            $("#minute").innerText = toDou(minute);
-            $("#second").innerText = toDou(second);
-        }
+        counter(timestamp);
         
         $(".play").onclick = function(){
-            $(".play").style.display = "none";
-            $(".pause").style.display = "block";
-            counter();
+            $(".play1").style.display = "none";
+            $(".pause1").style.display = "block";
+            counter(timestamp);
             timer = setInterval(function(){
                 timestamp++;
-                counter();
+                counter(timestamp);
             }, 1000);
         };
         $(".restart").onclick = function(){
-            $(".play").style.display = "block";
-            $(".pause").style.display = "none";
+            $(".play1").style.display = "block";
+            $(".pause1").style.display = "none";
             clearInterval(timer);
             timestamp = 0;
-            counter();
+            counter(timestamp);
 
             // clear record
             const record = $(".stopwatch-record");
@@ -94,8 +104,8 @@ onload = function(){
             order = 1;
         };
         $(".pause").onclick = function(){
-            $(".play").style.display = "block";
-            $(".pause").style.display = "none";
+            $(".play1").style.display = "block";
+            $(".pause1").style.display = "none";
             clearInterval(timer);
         }
         $(".plus").onclick = function(){
@@ -117,6 +127,46 @@ onload = function(){
         clearInterval(timer);
         $(".stopwatch-panel").style.display = "none";
         $(".countdown-panel").style.display = "block";
+        $(".play2").style.display = "block";
+        $(".pause2").style.display = "none";
+        $("#date").innerHTML = '';
+
+        let timestamp = 0;
+        counter(timestamp);
+        
+        $("#set-time-btn").onclick = function(){
+            const timeStr = $(".note-content").value;
+            if (setReg.test(timeStr)){
+                timestamp = readTime(timeStr);
+                counter(timestamp);
+            } else{
+                alert("Invalid input. Please try again");
+            }
+        };
+
+        $(".play2").onclick = function(){
+            $(".play2").style.display = "none";
+            $(".pause2").style.display = "block";
+            counter(timestamp);
+            timer = setInterval(function(){
+                if (timestamp==0){
+                    $(".play2").style.display = "block";
+                    $(".pause2").style.display = "none";
+                    clearInterval(timer);
+                    const audio = new Audio('clock_sound.wav');
+                    audio.play();
+                    return;
+                }
+                timestamp--;
+                counter(timestamp);
+            }, 1000);
+        };
+
+        $(".pause2").onclick = function(){
+            $(".play2").style.display = "block";
+            $(".pause2").style.display = "none";
+            clearInterval(timer);
+        }
     }
 
     // timer main logic

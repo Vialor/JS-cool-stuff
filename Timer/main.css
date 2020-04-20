@@ -129,3 +129,31 @@ body{
 .time-record{
     font-size: 25px;
 }
+
+.set-time{
+    margin: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.note-content{
+    outline: none;
+    background-color: antiquewhite;
+    border: solid 2px;
+    border-radius: 5px;
+}
+
+.note-content:focus::-webkit-input-placeholder {
+   color: transparent;
+}
+
+#set-time-btn{
+    border-radius: 5px;
+    background-color: antiquewhite;
+    outline: none;
+}
+
+#set-time-btn:hover{
+    background-color: rgb(230, 220, 207);
+}

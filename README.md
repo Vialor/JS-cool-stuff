@@ -5,16 +5,16 @@ Done:
 
 1. Simple Piano
 2. 2048
+3. Timer
 
 Doing:
 
-1. Timer/Clock
+1. Music Player
 
 TODO:
 
 4. Wheel of Fortune
 5. Calculator
-3. Music Player
 
 Explore:
 
