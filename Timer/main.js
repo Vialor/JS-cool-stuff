@@ -25,7 +25,7 @@ function hideNote(){
     $(".timer").classList.remove("blur");
 }
 
-function counter(timestamp){
+function displayTime(timestamp){
     const hour = Math.floor(timestamp / 60 / 60);
     const min = Math.floor(timestamp / 60) - 60 * hour;
     const sec = timestamp % 60;
@@ -43,6 +43,7 @@ function readTime(timeStr){
 }
 
 const setReg = /^\d{2}[:][0-6]\d[:][0-6]\d$/
+let timer = null;
 
 // onload
 onload = function(){
@@ -50,21 +51,20 @@ onload = function(){
     const menu = $(".menu");
     const option = $(".option");
     const notebook = $(".note-book");
-    let timer = null;
 
     function clockmode(){
         clearInterval(timer);
         $(".countdown-panel").style.display = "none";
         $(".stopwatch-panel").style.display = "none";
-            function counter(){
+            function displayTime(){
                 var today = new Date();
                 $("#date").innerHTML = today.toString();
                 $("#hour").innerText = toDou(today.getHours());
                 $("#minute").innerText = toDou(today.getMinutes());
                 $("#second").innerText = toDou(today.getSeconds());
             }
-            timer = setInterval(counter, 1000);
-            counter(); //initialize
+            timer = setInterval(displayTime, 1000);
+            displayTime(); //initialize
     }
 
     function stopwatchmode(){
@@ -78,15 +78,15 @@ onload = function(){
         $(".pause1").style.display = "none";
         $("#date").innerHTML = '';
         let timestamp = 0;
-        counter(timestamp);
+        displayTime(timestamp);
         
         $(".play").onclick = function(){
             $(".play1").style.display = "none";
             $(".pause1").style.display = "block";
-            counter(timestamp);
+            displayTime(timestamp);
             timer = setInterval(function(){
                 timestamp++;
-                counter(timestamp);
+                displayTime(timestamp);
             }, 1000);
         };
         $(".restart").onclick = function(){
@@ -94,7 +94,7 @@ onload = function(){
             $(".pause1").style.display = "none";
             clearInterval(timer);
             timestamp = 0;
-            counter(timestamp);
+            displayTime(timestamp);
 
             // clear record
             const record = $(".stopwatch-record");
@@ -132,13 +132,13 @@ onload = function(){
         $("#date").innerHTML = '';
 
         let timestamp = 0;
-        counter(timestamp);
+        displayTime(timestamp);
         
         $("#set-time-btn").onclick = function(){
             const timeStr = $(".note-content").value;
             if (setReg.test(timeStr)){
                 timestamp = readTime(timeStr);
-                counter(timestamp);
+                displayTime(timestamp);
             } else{
                 alert("Invalid input. Please try again");
             }
@@ -147,19 +147,21 @@ onload = function(){
         $(".play2").onclick = function(){
             $(".play2").style.display = "none";
             $(".pause2").style.display = "block";
-            counter(timestamp);
-            timer = setInterval(function(){
-                if (timestamp==0){
-                    $(".play2").style.display = "block";
-                    $(".pause2").style.display = "none";
-                    clearInterval(timer);
-                    const audio = new Audio('clock_sound.wav');
-                    audio.play();
-                    return;
-                }
-                timestamp--;
-                counter(timestamp);
-            }, 1000);
+            displayTime(timestamp);
+            if (timestamp!=0){
+                timer = setInterval(function(){
+                    if (timestamp==0){
+                        $(".play2").style.display = "block";
+                        $(".pause2").style.display = "none";
+                        clearInterval(timer);
+                        const audio = new Audio('clock_sound.wav');
+                        audio.play();
+                        return;
+                    }
+                    timestamp--;
+                    displayTime(timestamp);
+                }, 1000);
+            }
         };
 
         $(".pause2").onclick = function(){
