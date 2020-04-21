@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Chat</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="mydiv">
+        <input type="text" name="" id="user-input">
+        <button id="btn">send</button>
+    </div>
+    <script>
+        const oBtn = document.getElementById('btn');
+
+        oBtn.onclick = async function() {     
+            // send user msg
+            const keyword = document.getElementById("user-input").value;
+            document.getElementById("user-input").value = '';
+
+            // display AI reply
+            const res = await fetch(`/reply/${keyword}`);
+            const json = await res.json();
+            alert(json);
+        };
+    </script>
+</body>
+</html>
