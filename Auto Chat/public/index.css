@@ -1,0 +1,30 @@
+.chat-box{
+    border: solid 1px;
+    border-radius: 5px;
+    width: 400px;
+    height: 500px;
+    margin: auto;
+}
+
+.chat-box *{
+    margin: 5px;
+}
+
+.chat-history{
+    height: 450px;
+    border: solid 1px;
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+.msg-capsule{
+
+}
+
+.input-panel{
+    height: 50px;
+}
+
+#user-input{
+    width: 300px;
+}

@@ -15,6 +15,7 @@ TODO:
 
 4. Wheel of Fortune
 5. Calculator
+6. Video Player
 
 Explore:
 
