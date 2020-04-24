@@ -42,7 +42,7 @@ function readTime(timeStr){
     return sec + 60*min + 3600*hour;
 }
 
-const setReg = /^\d{2}[:][0-6]\d[:][0-6]\d$/
+const setReg = /^\d{2}[:][0-5]\d[:][0-5]\d$/
 let timer = null;
 
 // onload
