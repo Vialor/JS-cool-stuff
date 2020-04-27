@@ -6,6 +6,7 @@ Done:
 1. Simple Piano
 2. 2048
 3. Timer
+4. Auto Chat
 
 Doing:
 

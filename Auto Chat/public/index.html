@@ -38,7 +38,8 @@
 
             // display AI reply
             const res = await fetch(`/reply/${keyword}`);
-            const json = await res.json();
+            const reply = await res.json();
+            const json = await reply.split('{br}').join('<br>');
             const aimsg = document.createElement("div");
             aimsg.className = "msg-capsule";
             timestr = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds(); // update timestr
